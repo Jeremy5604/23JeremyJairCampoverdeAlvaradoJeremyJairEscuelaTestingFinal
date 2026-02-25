@@ -14,8 +14,6 @@ Feature: Automatizar backend - Store (PetStore)
     Then status 200
 
 
-
-
   @Test-2 @happyPath
   Scenario:Hacer pedido de una mascota
     Given path 'store','order'
@@ -39,7 +37,9 @@ Feature: Automatizar backend - Store (PetStore)
     When method DELETE
     Then status 200
 
-
-
-
-
+  @Test-5 @unhappypath
+  Scenario: Consultar orden con orderId inexistente debe fallar (404)
+    Given path 'store', 'order', 99999999
+    When method get
+    Then status 404
+    And match response.message contains 'Order not found'
