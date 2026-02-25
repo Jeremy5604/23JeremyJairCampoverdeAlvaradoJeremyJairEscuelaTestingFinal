@@ -8,8 +8,8 @@ Feature: Automatizar backend - Users (PetStore)
 
 
   @Test-1 @happypath
-  Scenario: Crear una lista de usuario(1 o más)
-    Given path 'user','createWithList'
+  Scenario: Crear un usuario
+    Given path 'user'
     And request jsonCrearUsuario
     When method post
     Then status 200
