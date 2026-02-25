@@ -78,6 +78,13 @@ Feature: Automatizar backend - Store (PetStore)
     And match response.message contains 'NumberFormatException'
     And match response.message contains 'abc'
 
+  @Test-11 @unhappyPath
+  Scenario: Consultar orden con orderId negativo no existe (404)
+    Given path 'store', 'order', -1
+    When method get
+    Then status 404
+    And match response.message contains 'Order not found'
+
 
 
 
