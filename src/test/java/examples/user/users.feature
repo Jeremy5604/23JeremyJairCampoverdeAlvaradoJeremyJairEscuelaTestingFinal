@@ -101,3 +101,10 @@ Feature: Automatizar backend - Users (PetStore)
     When method get
     Then status 404
     And match response.message contains 'User not found'
+
+
+  @Test-9 @unhappyPath
+  Scenario: Consultar usuario con username con espacios no existe (404)
+    Given path 'user', 'usuario con espacios'
+    When method get
+    Then status 404
