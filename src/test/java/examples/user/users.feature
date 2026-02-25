@@ -130,3 +130,9 @@ Feature: Automatizar backend - Users (PetStore)
     Given path 'user', longUser
     When method get
     Then status 404
+
+  @Test-13 @unhappyPath
+  Scenario: Crear usuario sin body debe fallar (400/415)
+    Given path 'user'
+    When method post
+    Then match responseStatus == 400 || responseStatus == 415
