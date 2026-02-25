@@ -121,3 +121,12 @@ Feature: Automatizar backend - Users (PetStore)
     Given path 'user', 'usuario_inexistente_delete_12345'
     When method delete
     Then status 404
+
+
+
+  @Test-12 @unhappyPath
+  Scenario: Consltar usuario con username muy largo no existe (404)
+    * def longUser = 'user_' + 'x'.repeat(80)
+    Given path 'user', longUser
+    When method get
+    Then status 404
