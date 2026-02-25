@@ -93,3 +93,13 @@ Feature: Automatizar backend - Store (PetStore)
     Then status 404
     And match response.message contains 'Order not found'
 
+  @Test-13 @unhappyPath
+  Scenario: Eliminar orden que no existe (404)
+    Given path 'store', 'order', 999999
+    When method delete
+    Then status 404
+    And match response.message contains 'Order Not Found'
+
+
+
+
