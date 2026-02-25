@@ -69,6 +69,15 @@ Feature: Automatizar backend - Store (PetStore)
     When method delete
     Then status 404
 
+  @Test-10 @unhappyPath
+  Scenario: Consultar orden con orderId NO numérico debe fallar (404)
+    Given path 'store', 'order', 'abc'
+    When method get
+    Then status 404
+    And match response.code == 404
+    And match response.message contains 'NumberFormatException'
+    And match response.message contains 'abc'
+
 
 
 
