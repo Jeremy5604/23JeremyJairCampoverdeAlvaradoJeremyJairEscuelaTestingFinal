@@ -136,3 +136,11 @@ Feature: Automatizar backend - Users (PetStore)
     Given path 'user'
     When method post
     Then match responseStatus == 400 || responseStatus == 415
+
+  @Test-14 @unhappyPath
+  Scenario: Login con credenciales inválidas debe fallar (400)
+    Given path 'user', 'login'
+    And param username = 'usuario_inexistente_login_999'
+    And param password = 'password_invalida'
+    When method get
+    Then status 400
