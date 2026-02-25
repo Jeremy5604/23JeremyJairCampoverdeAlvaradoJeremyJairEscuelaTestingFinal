@@ -14,6 +14,8 @@ Feature: Automatizar backend - Store (PetStore)
     Then status 200
 
 
+
+
   @Test-2 @happyPath
   Scenario:Hacer pedido de una mascota
     Given path 'store','order'
@@ -28,5 +30,16 @@ Feature: Automatizar backend - Store (PetStore)
     Given path 'store', 'order', orderId
     When method GET
     Then status 200
+
+
+  @Test-4 @happyPath
+  Scenario: Eliminar orden de compra por ID
+    * def orderId = jsonCrearPedido.id
+    Given path 'store', 'order', orderId
+    When method DELETE
+    Then status 200
+
+
+
 
 
