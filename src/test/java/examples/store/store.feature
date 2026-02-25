@@ -101,5 +101,14 @@ Feature: Automatizar backend - Store (PetStore)
     And match response.message contains 'Order Not Found'
 
 
+  @Test-14 @unhappyPath
+  Scenario: Eliminar orden con orderId NO numérico debe fallar (404)
+    Given path 'store', 'order', 'abc'
+    When method delete
+    Then status 404
+    And match response.code == 404
+    And match response.message contains 'NumberFormatException'
+
+
 
 
