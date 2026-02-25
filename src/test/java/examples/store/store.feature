@@ -86,5 +86,10 @@ Feature: Automatizar backend - Store (PetStore)
     And match response.message contains 'Order not found'
 
 
-
+  @Test-12 @unhappyPath
+  Scenario: Consultar orden con orderId = 0 no existe (404)
+    Given path 'store', 'order', 0
+    When method get
+    Then status 404
+    And match response.message contains 'Order not found'
 
