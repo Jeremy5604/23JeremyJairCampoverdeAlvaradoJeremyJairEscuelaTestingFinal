@@ -40,3 +40,20 @@ Feature: Automatizar backend - Users (PetStore)
     Then status 200
 
 
+  @Test-4 @happypath
+  Scenario: Eliminar usuario por username
+    #Requiere crear primero el usuario
+    * call read('classpath:examples/user/users.feature@Test-1')
+    * def username = jsonCrearUsuario[0].username
+    Given path 'user', username
+    When method delete
+    Then status 200
+
+
+    # Validación: ya no existe
+    Given path 'user', username
+    When method get
+    Then status 404
+
+
+
