@@ -4,6 +4,7 @@ Feature: Automatizar backend - Users (PetStore)
     * url apiPetStore
     * def jsonCrearUsuario = read('classpath:examples/JsonData/User/crearUsuario.json')
     * def jsonActualizarUsuario = read('classpath:examples/JsonData/User/actualizarUsuario.json')
+    * def jsonCrearListaUsuarios = read('classpath:examples/JsonData/User/crearListaUsuarios.json')
 
 
   @Test-1 @happypath
@@ -74,6 +75,24 @@ Feature: Automatizar backend - Users (PetStore)
   Scenario: Cierra sesión de usuario logueado
     Given path 'user', 'logout'
     When method get
+    Then status 200
+
+
+
+
+  #Este caso de prueba es igual a test-1 pero en este se va a registrar varios usuarios a la vez
+  @Test-7 @happypath
+  Scenario: Crear usuarios con List|Array (createWithList y createWithArray)
+    #Con createWithList
+    Given path 'user', 'createWithList'
+    And request jsonCrearListaUsuarios
+    When method post
+    Then status 200
+
+    #Con createWithArray
+    Given path 'user','createWithArray'
+    And request jsonCrearUsuario
+    When method post
     Then status 200
 
 

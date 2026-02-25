@@ -1,0 +1,42 @@
+[
+  {
+    "id": 2,
+    "username": "Eduardo123",
+    "firstName": "Eduardo",
+    "lastName": "Ramirez",
+    "email": "EduardoRamirez@gmail.com",
+    "password": "string",
+    "phone": "string",
+    "userStatus": 0
+  },
+  {
+    "id": 3,
+    "username": "Jessica",
+    "firstName": "Jessica",
+    "lastName": "Venegas",
+    "email": "JessicaVenegas@gmail.com",
+    "password": "string",
+    "phone": "string",
+    "userStatus": 0
+  },
+  {
+    "id": 4,
+    "username": "Alberto",
+    "firstName": "Alberto",
+    "lastName": "Peña",
+    "email": "AlbertoPeña@gmail.com",
+    "password": "string",
+    "phone": "string",
+    "userStatus": 0
+  },
+  {
+    "id": 5,
+    "username": "Diego",
+    "firstName": "Diego",
+    "lastName": "Steban",
+    "email": "DiegoSteban@gmail.com",
+    "password": "string",
+    "phone": "string",
+    "userStatus": 0
+  }
+]
