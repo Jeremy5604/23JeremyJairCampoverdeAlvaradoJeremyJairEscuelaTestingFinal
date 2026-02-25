@@ -4,15 +4,18 @@ function fn() {
   if (!env) {
     env = 'dev';
   }
+
+  if (env == 'dev') {
+    apiPetStore = 'https://petstore.swagger.io/v2/'
+  } else if (env == 'cert') {
+    apiPetStore = 'https://petstore.swagger.io/v2/'
+  }
+
   var config = {
     env: env,
-    myVarName: 'someValue'
+    myVarName: 'someValue',
+    apiPetStore: apiPetStore
   }
-  if (env == 'dev') {
-    // customize
-    // e.g. config.foo = 'bar';
-  } else if (env == 'e2e') {
-    // customize
-  }
+
   return config;
 }
