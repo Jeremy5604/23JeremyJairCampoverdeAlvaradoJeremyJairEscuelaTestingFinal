@@ -70,3 +70,11 @@ Feature: Automatizar backend - Users (PetStore)
     Then status 200
 
 
+  @Test-6 @happypath
+  Scenario: Cierra sesión de usuario logueado
+    Given path 'user', 'logout'
+    When method get
+    Then status 200
+
+
+
