@@ -51,3 +51,9 @@ Feature: Automatizar backend - Store (PetStore)
     Then status 404
 
 
+  @Test-7 @unhappyPath
+  Scenario: Consultar orden con orderId decimal debe fallar (404)
+    Given path 'store', 'order', 1.5
+    When method get
+    Then status 404
+
