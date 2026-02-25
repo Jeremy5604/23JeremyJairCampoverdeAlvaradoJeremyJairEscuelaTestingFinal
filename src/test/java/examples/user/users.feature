@@ -95,5 +95,9 @@ Feature: Automatizar backend - Users (PetStore)
     When method post
     Then status 200
 
-
-
+  @Test-8 @unhappyPath
+  Scenario: Consultar usuario inexistente
+    Given path 'user', 'usuario_que_no_existe_999999'
+    When method get
+    Then status 404
+    And match response.message contains 'User not found'
