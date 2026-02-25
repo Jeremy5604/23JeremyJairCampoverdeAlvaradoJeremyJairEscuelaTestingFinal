@@ -3,6 +3,7 @@ Feature: Automatizar backend - Users (PetStore)
   Background:
     * url apiPetStore
     * def jsonCrearUsuario = read('classpath:examples/JsonData/User/crearUsuario.json')
+    * def jsonActualizarUsuario = read('classpath:examples/JsonData/User/actualizarUsuario.json')
 
 
   @Test-1 @happypath
@@ -26,5 +27,16 @@ Feature: Automatizar backend - Users (PetStore)
     And match response.id == '#number'
     And match response.email == '#string'
     And match response.userStatus == '#number'
+
+  @Test-3 @happypath
+  Scenario: Actualizar usuario por username
+    #Requiere crear primero el usuario, me sirve para que el caso de prueba sea independiente
+    #si se quiere ejecutar solo @Test-3 y no regresion
+    * call read('classpath:examples/user/users.feature@Test-1')
+    * def username = jsonCrearUsuario[0].username
+    Given path 'user', username
+    And request jsonActualizarUsuario
+    When method put
+    Then status 200
 
 
