@@ -63,6 +63,12 @@ Feature: Automatizar backend - Store (PetStore)
     When method delete
     Then status 404
 
+  @Test-9 @unhappyPath
+  Scenario: Eliminar orden con orderId decimal debe fallar (404)
+    Given path 'store', 'order', 2.7
+    When method delete
+    Then status 404
+
 
 
 
