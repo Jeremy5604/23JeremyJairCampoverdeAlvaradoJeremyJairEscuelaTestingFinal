@@ -108,3 +108,11 @@ Feature: Automatizar backend - Users (PetStore)
     Given path 'user', 'usuario con espacios'
     When method get
     Then status 404
+
+
+  @Test-10 @unhappyPath
+  Scenario: Consultar usuario con caracteres especiales no existe (404)
+    Given path 'user', '***###@@@'
+    When method get
+    Then status 404
+
