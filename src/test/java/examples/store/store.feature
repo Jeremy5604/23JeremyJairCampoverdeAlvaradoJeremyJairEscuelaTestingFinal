@@ -20,3 +20,13 @@ Feature: Automatizar backend - Store (PetStore)
     And request jsonCrearPedido
     When method post
     Then status 200
+
+
+  @Test-3 @happyPath
+  Scenario: Encontrar orden de compra por ID
+    * def orderId = jsonCrearPedido.id
+    Given path 'store', 'order', orderId
+    When method GET
+    Then status 200
+
+
