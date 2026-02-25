@@ -3,8 +3,7 @@ Feature: Automatizar backend - Store (PetStore)
   Background:
     * url apiPetStore
     * def jsonCrearPedido = read('classpath:examples/JsonData/Store/crearPedido.json')
-    #* def jsonCrearOrder = read('classpath:examples/JsonData/store/crearOrder.json')
-    #* def jsonCrearOrderInvalida = read('classpath:examples/JsonData/store/crearOrderInvalida.json')
+
 
 
   @Test-1 @happyPath
@@ -43,3 +42,12 @@ Feature: Automatizar backend - Store (PetStore)
     When method get
     Then status 404
     And match response.message contains 'Order not found'
+
+
+  @Test-6 @unhappyPath
+  Scenario: Consultar orden con orderId extremadamente grande no existe (404)
+    Given path 'store', 'order', 999999999999
+    When method get
+    Then status 404
+
+
