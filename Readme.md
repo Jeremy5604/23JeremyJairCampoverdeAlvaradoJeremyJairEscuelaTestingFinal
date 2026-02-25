@@ -73,8 +73,11 @@ La URL no está siendo mostrada en los feature files.
 - Ejecución del Proyecto
 
 --- Ejecutar solo Store
+
 mvn clean test -Dtest=StoreRunner  -Dkarate.options="--tags @regresion" -Dkarate.env=cert
+
 --- Ejecutar solo User
+
 mvn clean test -Dtest=UsersRunner  -Dkarate.options="--tags @regresion" -Dkarate.env=cert
 
 
