@@ -57,3 +57,16 @@ Feature: Automatizar backend - Users (PetStore)
 
 
 
+  @Test-5 @happypath
+  Scenario: Inicia sesión como usuario en el sistema
+    #Requiere crear primero el usuario
+    * call read('classpath:examples/user/users.feature@Test-1')
+    * def username = jsonCrearUsuario[0].username
+    * def password = jsonCrearUsuario[0].password
+    Given path 'user', 'login'
+    And param username = username
+    And param password = password
+    When method get
+    Then status 200
+
+
