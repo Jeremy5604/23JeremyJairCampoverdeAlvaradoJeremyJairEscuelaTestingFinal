@@ -13,3 +13,18 @@ Feature: Automatizar backend - Users (PetStore)
     Then status 200
     And match response == { code: '#number', type: '#string', message: '#string' }
 
+  @Test-2 @happypath
+  Scenario: Consultar usuario por username
+   # Requiere crear primero, por eso llamo a ejecutar el test-1
+    * call read('classpath:examples/user/users.feature@Test-1')
+
+    * def username = jsonCrearUsuario[0].username
+    Given path 'user', username
+    When method get
+    Then status 200
+    And match response.username == username
+    And match response.id == '#number'
+    And match response.email == '#string'
+    And match response.userStatus == '#number'
+
+
