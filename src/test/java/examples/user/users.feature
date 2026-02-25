@@ -154,3 +154,12 @@ Feature: Automatizar backend - Users (PetStore)
     Then status 400
 
 
+  @Test-16 @unhappyPath
+  Scenario: Login sin password debe fallar (400)
+    Given path 'user', 'login'
+    And param username = 'user1'
+    When method get
+    Then status 400
+
+
+
