@@ -72,6 +72,8 @@ La URL no está siendo mostrada en los feature files.
 
 - Ejecución del Proyecto
 
+Ejecuta los siguientes comandos en la terminal de bash
+
 --- Ejecutar solo Store
 
 mvn clean test -Dtest=StoreRunner  -Dkarate.options="--tags @regresion" -Dkarate.env=cert
