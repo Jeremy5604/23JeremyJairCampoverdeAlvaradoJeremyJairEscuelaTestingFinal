@@ -57,3 +57,12 @@ Feature: Automatizar backend - Store (PetStore)
     When method get
     Then status 404
 
+  @Test-8 @unhappyPath
+  Scenario: Eliminar orden con orderId extremadamente grande no existe (404)
+    Given path 'store', 'order', 888888888888
+    When method delete
+    Then status 404
+
+
+
+
