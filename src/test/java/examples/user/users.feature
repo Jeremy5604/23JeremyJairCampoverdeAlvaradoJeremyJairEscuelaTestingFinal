@@ -116,3 +116,9 @@ Feature: Automatizar backend - Users (PetStore)
     When method get
     Then status 404
 
+  @Test-User-UH-05 @unhappyPath
+  Scenario: Eliminar usuario inexistente debe retornar 404
+    Given path 'user', 'usuario_inexistente_delete_12345'
+    When method delete
+    Then status 404
+
