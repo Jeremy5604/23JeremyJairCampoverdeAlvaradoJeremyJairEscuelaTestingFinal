@@ -42,7 +42,7 @@ Incluye:
 
 ---
 
-##  2. Configuración de Entornos
+##  3. Configuración de Entornos
 
 Las URLs base se configuran en:
 
@@ -97,7 +97,7 @@ Cada escenario incluye:
 
 Esto permite ejecutar pruebas específicas por tag.
 
-3. Reportes
+4. Reportes
 
 Karate genera reportes automáticos en:
 
